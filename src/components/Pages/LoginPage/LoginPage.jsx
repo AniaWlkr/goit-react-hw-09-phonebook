@@ -1,68 +1,53 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { operations } from '../../../redux/auth';
-import Button from '../../Button';
 import commonStyles from '../../commonStyles/formComStyles.module.css';
+import Button from '../../Button';
 
-class LoginPage extends Component {
-  state = {
-    email: '',
-    password: '',
-  };
+const LoginPage = () => {
+  const dispatch = useDispatch();
 
-  handleChange = event => {
-    this.setState({ [event.currentTarget.name]: event.currentTarget.value });
-  };
+  const [email, setEmail] = useState('');
+  const handleEmailChange = event => setEmail(event.currentTarget.value);
 
-  handleSubmit = event => {
+  const [password, setPassword] = useState('');
+  const handlePasswordChange = event => setPassword(event.currentTarget.value);
+
+  const handleSubmit = event => {
     event.preventDefault();
 
-    this.props.loginUser(this.state);
+    const userCredentials = { email, password };
+    dispatch(operations.loginUser(userCredentials));
 
-    this.setState({
-      email: '',
-      password: '',
-    });
+    setEmail('');
+    setPassword('');
   };
 
-  render() {
-    const { email, password } = this.state;
-
-    return (
-      <form onSubmit={this.handleSubmit} className={commonStyles.form}>
-        <label className={commonStyles.label}>
-          Email
-          <input
-            type="email"
-            name="email"
-            value={email}
-            onChange={this.handleChange}
-            className={commonStyles.input}
-          />
-        </label>
-        <label className={commonStyles.label}>
-          Password
-          <input
-            type="password"
-            name="password"
-            value={password}
-            onChange={this.handleChange}
-            className={commonStyles.input}
-          />
-        </label>
-        <Button type="submit" title="Login" className={commonStyles.button} />
-      </form>
-    );
-  }
-}
-
-LoginPage.propTypes = {
-  loginUser: PropTypes.func,
+  return (
+    <form onSubmit={handleSubmit} className={commonStyles.form}>
+      <label className={commonStyles.label}>
+        Email
+        <input
+          type="email"
+          name="email"
+          value={email}
+          onChange={handleEmailChange}
+          className={commonStyles.input}
+        />
+      </label>
+      <label className={commonStyles.label}>
+        Password
+        <input
+          type="password"
+          name="password"
+          value={password}
+          onChange={handlePasswordChange}
+          className={commonStyles.input}
+        />
+      </label>
+      <Button type="submit" title="Login" className={commonStyles.button} />
+    </form>
+  );
 };
 
-const mapDispatchToProps = dispatch => ({
-  loginUser: userCredentials => dispatch(operations.loginUser(userCredentials)),
-});
-
-export default connect(null, mapDispatchToProps)(LoginPage);
+export default LoginPage;

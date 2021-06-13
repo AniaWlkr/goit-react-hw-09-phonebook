@@ -1,11 +1,15 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import Button from '../Button';
+import { useSelector, useDispatch } from 'react-redux';
 import { operations, selectors } from '../../redux/auth';
 import styles from './UserMenu.module.css';
+import Button from '../Button';
 
-const UserMenu = ({ userName, handleLogout }) => {
+const UserMenu = () => {
+  const dispatch = useDispatch();
+
+  const userName = useSelector(selectors.getUserName);
+  const handleLogout = () => dispatch(operations.logoutUser());
+
   return (
     <div className={styles.container}>
       <p className={styles.greeting}>Welcome, {userName}</p>
@@ -18,17 +22,4 @@ const UserMenu = ({ userName, handleLogout }) => {
   );
 };
 
-UserMenu.propTypes = {
-  handleLogout: PropTypes.func,
-  userName: PropTypes.string,
-};
-
-const mapStateToProps = state => ({
-  userName: selectors.getUserName(state),
-});
-
-const mapDispatchToProps = dispatch => ({
-  handleLogout: () => dispatch(operations.logoutUser()),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(UserMenu);
+export default UserMenu;

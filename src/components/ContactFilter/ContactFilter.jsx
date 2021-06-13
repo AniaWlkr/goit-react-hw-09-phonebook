@@ -1,10 +1,15 @@
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
-import styles from './ContactFilter.module.css';
-import { connect } from 'react-redux';
 import { changeFilter, selectors } from '../../redux/contacts';
+import styles from './ContactFilter.module.css';
 
-const ContactFilter = ({ value, handleChange }) => {
+const ContactFilter = () => {
+  const value = useSelector(selectors.getFilter);
+
+  const dispatch = useDispatch();
+  const handleChange = event => dispatch(changeFilter(event.target.value));
+
   return (
     <div className={styles.container}>
       <label className={styles.label}>
@@ -29,15 +34,4 @@ ContactFilter.propTypes = {
   handleChange: PropTypes.func,
 };
 
-const mapStateToProps = state => {
-  return {
-    value: selectors.getFilter(state),
-  };
-};
-
-const mapDispatchToProps = dispatch => {
-  return {
-    handleChange: event => dispatch(changeFilter(event.target.value)),
-  };
-};
-export default connect(mapStateToProps, mapDispatchToProps)(ContactFilter);
+export default ContactFilter;

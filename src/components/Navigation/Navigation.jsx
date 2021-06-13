@@ -1,14 +1,16 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
+import { selectors } from '../../redux/auth';
+import classnames from 'classnames';
 import commonStyles from '../commonStyles/linkComStyles.module.css';
 import styles from './Navigation.module.css';
-import classnames from 'classnames';
 import routes from '../routes';
-import { selectors } from '../../redux/auth';
 
-const Navigation = ({ isAuthenticated }) => {
+const Navigation = () => {
+  const isAuthenticated = useSelector(selectors.getIsAuthenticated);
+
   return (
     <nav>
       <NavLink
@@ -37,8 +39,4 @@ Navigation.propTypes = {
   isAuthenticated: PropTypes.bool,
 };
 
-const mapStateToProps = state => ({
-  isAuthenticated: selectors.getIsAuthenticated(state),
-});
-
-export default connect(mapStateToProps)(Navigation);
+export default Navigation;

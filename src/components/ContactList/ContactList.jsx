@@ -1,27 +1,31 @@
 import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
-import styles from './ContactList.module.css';
-import { connect } from 'react-redux';
-import ContactFilter from '../ContactFilter/ContactFilter';
-import Loader from '../Loader';
 import { operations, selectors, changeContactId } from '../../redux/contacts';
+import styles from './ContactList.module.css';
+import ContactFilter from '../ContactFilter';
+import Loader from '../Loader';
 import Button from '../Button';
 import Modal from '../Modal';
-import ContactEdit from '../ContactEdit/ContactEdit';
-import { useDispatch } from 'react-redux';
+import ContactEdit from '../ContactEdit';
 
-const ContactList = ({ contacts, handleDelete, isLoadingContacts }) => {
-  const [showModal, setShowModal] = useState(false);
-
-  const toggleModal = () => setShowModal(prevShowModal => !prevShowModal);
-
+const ContactList = () => {
   const dispatch = useDispatch();
+
+  const contacts = useSelector(selectors.getFilteredContacts);
+  const isLoadingContacts = useSelector(selectors.getLoading);
+
+  const [showModal, setShowModal] = useState(false);
+  const toggleModal = () => setShowModal(prevShowModal => !prevShowModal);
 
   const onChangeBtnClick = id => {
     dispatch(changeContactId(id));
 
     toggleModal();
   };
+
+  const handleDelete = contactId =>
+    dispatch(operations.deleteContact(contactId));
 
   return (
     <div className={styles.section}>
@@ -81,13 +85,4 @@ ContactList.propTypes = {
   isLoadingContacts: PropTypes.bool,
 };
 
-const mapStateToProps = state => ({
-  contacts: selectors.getFilteredContacts(state),
-  isLoadingContacts: selectors.getLoading(state),
-});
-
-const mapDispatchToProps = dispatch => ({
-  handleDelete: contactId => dispatch(operations.deleteContact(contactId)),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(ContactList);
+export default ContactList;

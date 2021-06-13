@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
+import { operations, selectors } from '../../redux/contacts';
 import commonStyles from '../commonStyles/formComStyles.module.css';
 import styles from './ContactEdit.module.css';
-import { operations, selectors } from '../../redux/contacts';
 import Button from '../Button/Button';
-import { useDispatch } from 'react-redux';
 
 const ContactEdit = ({ toggleModal }) => {
   const contactId = useSelector(selectors.getContactId);

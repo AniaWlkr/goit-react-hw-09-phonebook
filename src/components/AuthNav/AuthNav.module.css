@@ -1,3 +1,15 @@
 .linkRegister {
-  margin-right: 15px;
+  margin-right: 5px;
+}
+
+@media screen and (min-width: 768px) {
+  .linkRegister {
+    margin-right: 15px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .linkRegister {
+    margin-right: 20px;
+  }
 }
