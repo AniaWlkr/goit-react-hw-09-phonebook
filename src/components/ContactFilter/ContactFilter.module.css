@@ -1,0 +1,33 @@
+.label {
+  margin-top: 5px;
+  font-size: 22px;
+}
+
+.icon {
+  margin-right: 10px;
+}
+
+.input {
+  margin-top: 5px;
+  padding: 2px 10px;
+
+  font-size: 18px;
+  color: darkgrey;
+
+  border-style: none;
+  border: 1px solid rgb(189, 188, 188);
+  border-radius: 3px;
+  box-shadow: 4px 4px 5px 1px rgba(172, 171, 171, 0.7);
+}
+
+@media screen and (min-width: 768px) {
+  .label {
+    font-size: 24px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .label {
+    font-size: 26px;
+  }
+}

@@ -1,0 +1,25 @@
+.link {
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.activeLink {
+  color: rgba(192, 38, 110, 0.89);
+}
+
+.link:hover,
+.link:focus {
+  text-decoration: underline;
+}
+
+@media screen and (min-width: 768px) {
+  .link {
+    font-size: 18px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .link {
+    font-size: 20px;
+  }
+}
