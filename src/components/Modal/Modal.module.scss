@@ -1,3 +1,5 @@
+@import '../commonStyles/variables.module.scss';
+
 .backdrop {
   position: fixed;
   top: 0;
@@ -35,14 +37,14 @@
   fill: rgba(34, 10, 172, 0.826);
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: $tablet) {
   .icon {
     width: 20px;
     height: 20px;
   }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: $desktop) {
   .icon {
     width: 30px;
     height: 30px;

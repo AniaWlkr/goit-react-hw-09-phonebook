@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import { operations, selectors } from '../../redux/contacts';
-import commonStyles from '../commonStyles/formComStyles.module.css';
-import styles from './ContactEdit.module.css';
+import commonStyles from '../commonStyles/formComStyles.module.scss';
+import styles from './ContactEdit.module.scss';
 import Button from '../Button/Button';
 
 const ContactEdit = ({ toggleModal }) => {
@@ -30,7 +30,7 @@ const ContactEdit = ({ toggleModal }) => {
         setName(value);
         break;
       case 'number':
-        setName(value);
+        setNumber(value);
         break;
 
       default:

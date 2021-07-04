@@ -1,3 +1,5 @@
+@import '../commonStyles/variables.module.scss';
+
 .label {
   margin-top: 5px;
   font-size: 22px;
@@ -20,13 +22,13 @@
   box-shadow: 4px 4px 5px 1px rgba(172, 171, 171, 0.7);
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: $tablet) {
   .label {
     font-size: 24px;
   }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: $desktop) {
   .label {
     font-size: 26px;
   }

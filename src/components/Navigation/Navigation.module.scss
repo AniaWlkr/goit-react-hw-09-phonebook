@@ -1,0 +1,28 @@
+@import '../commonStyles/variables.module.scss';
+
+.container {
+  display: flex;
+  flex-direction: column;
+
+  text-align: left;
+}
+
+.linkHome {
+  margin-right: 5px;
+}
+
+@media screen and (min-width: $tablet) {
+  .container {
+    flex-direction: row;
+  }
+
+  .linkHome {
+    margin-right: 15px;
+  }
+}
+
+@media screen and (min-width: $desktop) {
+  .linkHome {
+    margin-right: 20px;
+  }
+}

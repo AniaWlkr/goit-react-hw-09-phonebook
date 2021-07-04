@@ -1,14 +1,16 @@
+@import '../commonStyles/variables.module.scss';
+
 .linkRegister {
   margin-right: 5px;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: $tablet) {
   .linkRegister {
     margin-right: 15px;
   }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: $desktop) {
   .linkRegister {
     margin-right: 20px;
   }

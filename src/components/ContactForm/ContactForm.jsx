@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import { operations } from '../../redux/contacts';
-import styles from '../commonStyles/formComStyles.module.css';
+import styles from '../commonStyles/formComStyles.module.scss';
 import Button from '../Button/Button';
 
 const ContactForm = () => {

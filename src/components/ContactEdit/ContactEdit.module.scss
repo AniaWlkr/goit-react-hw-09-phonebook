@@ -1,3 +1,5 @@
+@import '../commonStyles/variables.module.scss';
+
 .container {
   padding: 35px;
   background-color: #fff;
@@ -5,7 +7,7 @@
   text-align: center;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: $tablet) {
   .container {
     padding: 50px 100px;
   }

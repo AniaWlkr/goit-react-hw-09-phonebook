@@ -1,6 +1,10 @@
+@import '../commonStyles/variables.module.scss';
+
 .container {
-  align-items: center;
-  /* display: flex; */
+  display: flex;
+  flex-direction: column;
+
+  text-align: right;
 }
 
 .greeting {
@@ -28,9 +32,9 @@
   background: lightblue;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: $tablet) {
   .container {
-    display: flex;
+    flex-direction: row;
   }
 
   .button {
@@ -43,7 +47,7 @@
   }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: $desktop) {
   .button {
     font-size: 18px;
   }

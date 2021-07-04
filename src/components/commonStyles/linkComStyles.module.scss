@@ -1,3 +1,5 @@
+@import '../commonStyles/variables.module.scss';
+
 .link {
   text-decoration: none;
   font-size: 14px;
@@ -13,12 +15,12 @@
   text-decoration: underline;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: $tablet) {
   .link {
     font-size: 18px;
   }
 }
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: $desktop) {
   .link {
     font-size: 20px;
   }

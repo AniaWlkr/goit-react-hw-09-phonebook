@@ -4,15 +4,15 @@ import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import { selectors } from '../../redux/auth';
 import classnames from 'classnames';
-import commonStyles from '../commonStyles/linkComStyles.module.css';
-import styles from './Navigation.module.css';
+import commonStyles from '../commonStyles/linkComStyles.module.scss';
+import styles from './Navigation.module.scss';
 import routes from '../routes';
 
 const Navigation = () => {
   const isAuthenticated = useSelector(selectors.getIsAuthenticated);
 
   return (
-    <nav>
+    <nav className={styles.container}>
       <NavLink
         to={routes.home}
         exact

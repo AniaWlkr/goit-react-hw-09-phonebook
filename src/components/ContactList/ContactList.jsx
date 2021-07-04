@@ -2,12 +2,13 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import { operations, selectors, changeContactId } from '../../redux/contacts';
-import styles from './ContactList.module.css';
+import styles from './ContactList.module.scss';
 import ContactFilter from '../ContactFilter';
 import Loader from '../Loader';
 import Button from '../Button';
 import Modal from '../Modal';
 import ContactEdit from '../ContactEdit';
+import { useCallback } from 'react';
 
 const ContactList = () => {
   const dispatch = useDispatch();
@@ -16,7 +17,9 @@ const ContactList = () => {
   const isLoadingContacts = useSelector(selectors.getLoading);
 
   const [showModal, setShowModal] = useState(false);
-  const toggleModal = () => setShowModal(prevShowModal => !prevShowModal);
+  const toggleModal = useCallback(() => {
+    setShowModal(prevShowModal => !prevShowModal);
+  }, []);
 
   const onChangeBtnClick = id => {
     dispatch(changeContactId(id));

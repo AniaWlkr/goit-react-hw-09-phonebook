@@ -1,8 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import classnames from 'classnames';
-import styles from './AuthNav.module.css';
-import commonStyles from '../commonStyles/linkComStyles.module.css';
+import styles from './AuthNav.module.scss';
+import commonStyles from '../commonStyles/linkComStyles.module.scss';
 import routes from '../routes';
 
 const AuthNav = () => {

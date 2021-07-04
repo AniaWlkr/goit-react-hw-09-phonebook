@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { operations } from '../../../redux/auth';
-import commonStyles from '../../commonStyles/formComStyles.module.css';
+import commonStyles from '../../commonStyles/formComStyles.module.scss';
 import Button from '../../Button';
 
 const LoginPage = () => {

@@ -1,6 +1,6 @@
 import { createPortal } from 'react-dom';
 import React, { useEffect } from 'react';
-import styles from './Modal.module.css';
+import styles from './Modal.module.scss';
 import IconButton from '../IconButton';
 import { ReactComponent as CloseIcon } from '../../components/icons/cross.svg';
 
